@@ -104,7 +104,8 @@ function htmlToPlainText(html) {
 
 export function exportAsPdf(title, titleHtml, contentHtml, bgColor, titleAlign) {
   const align = titleAlign || 'center';
-  const titleBlock = titleHtml ? `<div style="font-weight:bold;font-size:1.8rem;margin-bottom:0.5em;text-align:${align};">${sanitizeForExport(titleHtml)}</div>` : '';
+  const plainTitle = titleHtml ? titleHtml.replace(/<[^>]+>/g, '').trim() : '';
+  const titleBlock = plainTitle ? `<div style="font-weight:bold;font-size:1.8rem;margin-bottom:0.5em;text-align:${align};">${escapeHtml(plainTitle)}</div>` : '';
   const cleanHtml = sanitizeForExport(flattenDivs(contentHtml || ''));
   const textColor = bgColor ? readableTextColor(bgColor) : '#1a1a22';
   const bgStyle = bgColor ? `background:${bgColor};color:${textColor};` : '';
