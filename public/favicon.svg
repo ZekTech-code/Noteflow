@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <!-- Circle background -->
+  <circle cx="16" cy="16" r="15" fill="#ff6b6b"/>
+  
+  <!-- Note/Document inside circle -->
+  <rect x="8" y="6" width="16" height="18" rx="1" fill="#ffffff" stroke="#ffffff" stroke-width="0.5"/>
+  
+  <!-- Lines on the note -->
+  <line x1="10" y1="11" x2="22" y2="11" stroke="#ff6b6b" stroke-width="0.8"/>
+  <line x1="10" y1="15" x2="22" y2="15" stroke="#ff6b6b" stroke-width="0.8"/>
+  <line x1="10" y1="19" x2="22" y2="19" stroke="#ff6b6b" stroke-width="0.8"/>
+</svg>

@@ -1,0 +1,51 @@
+export const NOTE_TEMPLATES = [
+  {
+    id: 'blank',
+    name: 'Blank',
+    icon: 'fa-solid fa-file',
+    title: '',
+    content: '',
+  },
+  {
+    id: 'meeting',
+    name: 'Meeting Notes',
+    icon: 'fa-solid fa-users',
+    title: 'Meeting Notes — ',
+    content: `<h2>Attendees</h2><p></p><h2>Agenda</h2><ul><li></li></ul><h2>Discussion</h2><p></p><h2>Action Items</h2><ul><li></li></ul><h2>Next Steps</h2><p></p>`,
+  },
+  {
+    id: 'lecture',
+    name: 'Lecture Notes',
+    icon: 'fa-solid fa-graduation-cap',
+    title: 'Lecture — ',
+    content: `<h2>Topic</h2><p></p><h2>Key Points</h2><ul><li></li></ul><h2>Details</h2><p></p><h2>Questions</h2><p></p><h2>Summary</h2><p></p>`,
+  },
+  {
+    id: 'journal',
+    name: 'Journal',
+    icon: 'fa-solid fa-book',
+    title: `Journal — ${new Date().toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' })}`,
+    content: `<h2>How I Feel</h2><p></p><h2>What Happened Today</h2><p></p><h2>Grateful For</h2><ul><li></li></ul><h2>Tomorrow</h2><p></p>`,
+  },
+  {
+    id: 'todo',
+    name: 'Todo List',
+    icon: 'fa-solid fa-list-check',
+    title: 'Todo List',
+    content: `<h2>Today</h2><ul><li>☐ </li><li>☐ </li><li>☐ </li></ul><h2>This Week</h2><ul><li>☐ </li><li>☐ </li></ul>`,
+  },
+  {
+    id: 'project',
+    name: 'Project Plan',
+    icon: 'fa-solid fa-diagram-project',
+    title: 'Project — ',
+    content: `<h2>Overview</h2><p></p><h2>Goals</h2><ul><li></li></ul><h2>Timeline</h2><p></p><h2>Resources</h2><p></p><h2>Risks</h2><p></p><h2>Status</h2><p></p>`,
+  },
+  {
+    id: 'brainstorm',
+    name: 'Brainstorm',
+    icon: 'fa-solid fa-lightbulb',
+    title: 'Brainstorm — ',
+    content: `<h2>Problem</h2><p></p><h2>Ideas</h2><ul><li></li></ul><h2>Pros &amp; Cons</h2><p></p><h2>Best Option</h2><p></p>`,
+  },
+];
