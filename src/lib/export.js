@@ -110,7 +110,7 @@ export function exportAsPdf(title, titleHtml, contentHtml, bgColor, titleAlign) 
   const textColor = bgColor ? readableTextColor(bgColor) : '#1a1a22';
   const bgStyle = bgColor ? `background:${bgColor};color:${textColor};` : '';
   const html = `<!DOCTYPE html>
-<html><head><title>${escapeHtml(title)}</title>
+<html><head><title>${escapeHtml(plainTitle)}</title>
 <style>
   @page { margin: 0; size: A4; }
   * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
@@ -136,7 +136,7 @@ export function exportAsPdf(title, titleHtml, contentHtml, bgColor, titleAlign) 
 
   const printWindow = window.open('', '_blank');
   if (!printWindow) return;
-  printWindow.document.title = title;
+  printWindow.document.title = plainTitle || 'Note';
   printWindow.document.write(html);
   printWindow.document.close();
   setTimeout(() => { printWindow.print(); }, 500);
