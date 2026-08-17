@@ -782,7 +782,6 @@ export function NotesProvider({ children }) {
           showToast('PDF downloaded!');
         } catch (err) {
           showToast('Could not generate PDF');
-          console.error('PDF export failed', err);
         } finally {
           dispatch({ type: 'SET_DOWNLOADING', downloading: false });
         }

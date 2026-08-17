@@ -1,9 +1,9 @@
 import { useState, useEffect, useRef } from 'react';
 
 export const AUTH_VIDEO = {
-  src: 'https://assets.mixkit.co/videos/50128/50128-720.mp4',
+  src: import.meta.env.VITE_AUTH_VIDEO_URL || 'https://assets.mixkit.co/videos/50128/50128-720.mp4',
   type: 'video/mp4',
-  poster: 'https://assets.mixkit.co/videos/50128/50128-thumb-720-0.jpg',
+  poster: import.meta.env.VITE_AUTH_VIDEO_POSTER || 'https://assets.mixkit.co/videos/50128/50128-thumb-720-0.jpg',
 };
 
 const WORD_COLUMNS = [

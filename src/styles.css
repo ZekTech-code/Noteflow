@@ -138,7 +138,7 @@ header {
   border-radius: 50%;
   border: 2px solid var(--border);
   background: var(--accent);
-  color: #111;
+  color: var(--text-primary);
   font-family: var(--font-display);
   font-size: 1.1rem;
   font-weight: 600;
@@ -176,7 +176,7 @@ header {
 }
 .btn-primary {
   background: var(--accent);
-  color: #111;
+  color: var(--text-primary);
 }
 .btn-primary:hover {
   filter: brightness(1.1);
@@ -323,7 +323,7 @@ header {
   position: relative;
 }
 .header-mic.mic-active {
-  color: #ef4444;
+  color: var(--danger);
   animation: micPulse 1.5s ease-in-out infinite;
 }
 .header-mic.mic-paused {
@@ -334,12 +334,12 @@ header {
   pointer-events: none;
 }
 .header-stop {
-  color: #ef4444 !important;
+  color: var(--danger) !important;
   background: rgba(239, 68, 68, 0.12) !important;
 }
 .header-stop:hover {
   background: rgba(239, 68, 68, 0.25) !important;
-  color: #fff !important;
+  color: var(--text-primary) !important;
 }
 @keyframes micPulse {
   0%, 100% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.4); }
@@ -507,7 +507,7 @@ header {
 }
 .cat-btn.active .cat-count {
   background: var(--accent);
-  color: #111;
+  color: var(--text-primary);
 }
 
 .notes-section {
@@ -1320,7 +1320,7 @@ header {
   border-radius: 8px;
   border: none;
   background: var(--accent);
-  color: #fff;
+  color: var(--text-primary);
   font-size: 13px;
   font-weight: 600;
   cursor: pointer;
@@ -1370,7 +1370,7 @@ header {
 }
 .share-check {
   margin-left: auto;
-  color: #22c55e;
+  color: var(--success);
   font-size: 14px;
 }
 
@@ -1387,7 +1387,7 @@ header {
   height: 84px;
   border-radius: 50%;
   background: var(--accent);
-  color: #111;
+  color: var(--text-primary);
   font-family: var(--font-display);
   font-size: 2rem;
   font-weight: 600;
@@ -1412,7 +1412,7 @@ header {
   border-radius: 50%;
   border: 2px solid var(--bg-card);
   background: var(--accent);
-  color: #111;
+  color: var(--text-primary);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1603,7 +1603,7 @@ header {
   font-size: 1.35rem;
   font-weight: 700;
   letter-spacing: -0.02em;
-  color: #fff;
+  color: var(--text-primary);
 }
 .loading-bar {
   width: 140px;
@@ -2124,7 +2124,7 @@ body {
   align-items: center;
   justify-content: center;
   background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold) 52%, var(--gold-pressed) 100%);
-  color: #0b0f19;
+  color: var(--bg-deep);
   box-shadow:
     0 12px 32px rgba(212, 175, 55, 0.28),
     inset 0 1px 0 rgba(255, 255, 255, 0.5);
@@ -2169,7 +2169,7 @@ body {
   font-size: 1.3rem;
   font-weight: 700;
   letter-spacing: -0.02em;
-  color: #fff;
+  color: var(--text-primary);
   margin-bottom: 5px;
 }
 .auth-heading p {
@@ -2222,7 +2222,7 @@ body {
   background: rgba(11, 15, 25, 0.62);
   border: 1px solid rgba(255, 255, 255, 0.09);
   border-radius: 12px;
-  color: #fff;
+  color: var(--text-primary);
   font-family: var(--font-body);
   font-size: 0.95rem;
   outline: none;
@@ -2264,7 +2264,7 @@ body {
   transition: color 0.2s ease, background 0.2s ease;
 }
 .auth-eye:hover {
-  color: #fff;
+  color: var(--text-primary);
   background: rgba(255, 255, 255, 0.06);
 }
 .auth-eye:focus-visible {
@@ -2344,7 +2344,7 @@ body {
   border: none;
   border-radius: 12px;
   background: linear-gradient(135deg, var(--gold-hover) 0%, var(--gold) 48%, var(--gold-pressed) 100%);
-  color: #0b0f19;
+  color: var(--bg-deep);
   font-family: var(--font-body);
   font-size: 1rem;
   font-weight: 700;
@@ -2578,7 +2578,7 @@ body {
   font-size: 1.4rem;
   font-weight: 700;
   letter-spacing: -0.02em;
-  color: #fff;
+  color: var(--text-primary);
   margin-bottom: 8px;
 }
 .nf-success-modal p {
@@ -2621,7 +2621,7 @@ body {
 }
 .btn-danger-solid {
   background: var(--accent);
-  color: #111;
+  color: var(--text-primary);
 }
 .btn-danger-solid:hover {
   filter: brightness(1.1);
@@ -2691,7 +2691,7 @@ body {
 .auth-screen {
   align-items: stretch;
   justify-content: stretch;
-  background: #0a0d12;
+  background: var(--bg-deep);
   padding: 0;
 }
 
@@ -2727,7 +2727,7 @@ body {
 
 .auth-story {
   max-width: 620px;
-  color: #fff;
+  color: var(--text-primary);
 }
 
 .auth-kicker {
@@ -2742,7 +2742,7 @@ body {
 .auth-story h2 {
   max-width: 760px;
   margin: 0;
-  color: #fff;
+  color: var(--text-primary);
   font-size: clamp(2.4rem, 5vw, 4.8rem);
   font-weight: 800;
   line-height: 0.98;
@@ -2795,8 +2795,8 @@ body {
   width: 46px;
   height: 46px;
   border-radius: 8px;
-  background: #151922;
-  color: #d9b957;
+  background: var(--bg-panel);
+  color: var(--gold);
   box-shadow: none;
 }
 
@@ -2852,7 +2852,7 @@ body {
 .auth-input {
   height: 50px;
   border-radius: 8px;
-  background: #fff;
+  background: var(--bg-card);
   border-color: #d8dde7;
   color: #151922;
 }
@@ -2867,7 +2867,7 @@ body {
 
 .auth-input:focus {
   border-color: #b08a28;
-  background: #fff;
+  background: var(--bg-card);
   box-shadow: 0 0 0 4px rgba(176, 138, 40, 0.14);
 }
 
@@ -2888,8 +2888,8 @@ body {
 .auth-submit {
   height: 50px;
   border-radius: 8px;
-  background: #151922;
-  color: #fff;
+  background: var(--bg-panel);
+  color: var(--text-primary);
   box-shadow: none;
 }
 
@@ -2904,7 +2904,7 @@ body {
 
 .auth-divider::before,
 .auth-divider::after {
-  background: #e0e4ec;
+  background: var(--bg-panel);
 }
 
 .auth-switch,
@@ -2914,7 +2914,7 @@ body {
 
 .auth-switch button,
 .auth-link {
-  color: #8a661b;
+  color: var(--gold-pressed);
 }
 
 .auth-switch button:hover,
@@ -2991,7 +2991,7 @@ body {
     width: 100%;
     max-width: 440px;
     margin: 0 auto;
-    color: #fff;
+    color: var(--text-primary);
   }
 
   .auth-kicker {
@@ -3168,7 +3168,7 @@ body {
 }
 
 .auth-footer a:hover {
-  color: #fff;
+  color: var(--text-primary);
   text-decoration: underline;
   text-underline-offset: 3px;
 }
@@ -4516,7 +4516,7 @@ body {
 .checklist-item.checked .checklist-box {
   background: var(--accent, #d4af37);
   border-color: var(--accent, #d4af37);
-  color: #fff;
+  color: var(--text-primary);
 }
 .checklist-item.checked .checklist-text {
   text-decoration: line-through;

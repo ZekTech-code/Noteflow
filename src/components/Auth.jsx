@@ -123,7 +123,7 @@ export default function Auth() {
           <div className="auth-brand-mark" aria-hidden="true">
             <img src="/favicon.svg" alt="" className="auth-brand-favicon" />
           </div>
-          <h1 className="auth-brand-name" style={{ color: '#ffffff', WebkitTextFillColor: '#ffffff', textShadow: '0 1px 3px rgba(0,0,0,0.3)' }}>
+          <h1 className="auth-brand-name" style={{ color: 'var(--text-primary)', WebkitTextFillColor: 'var(--text-primary)', textShadow: '0 1px 3px rgba(0,0,0,0.3)' }}>
             Note<em>Flow</em>
           </h1>
         </header>

@@ -193,7 +193,7 @@ function DeleteModal() {
           <button className="btn btn-ghost" onClick={() => actions.closeModal()}>
             Keep It
           </button>
-          <button className="btn" style={{ background: 'var(--accent)', color: '#111' }} onClick={() => actions.deleteNote()}>
+          <button className="btn" style={{ background: 'var(--accent)', color: 'var(--text-primary)' }} onClick={() => actions.deleteNote()}>
             Yes, Delete
           </button>
         </>
@@ -287,7 +287,7 @@ function ProfileModal() {
       onClose={() => actions.closeModal()}
       footer={
         <>
-          <button className="btn" style={{ background: 'var(--accent)', color: '#111' }} onClick={() => actions.logout()}>
+          <button className="btn" style={{ background: 'var(--accent)', color: 'var(--text-primary)' }} onClick={() => actions.logout()}>
             <i className="fa-solid fa-arrow-right-from-bracket"></i> Log out
           </button>
           <span className="modal-footer-spacer"></span>
