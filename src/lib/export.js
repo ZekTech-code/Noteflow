@@ -139,7 +139,10 @@ export function exportAsPdf(title, titleHtml, contentHtml, bgColor, titleAlign) 
   printWindow.document.title = plainTitle || 'Note';
   printWindow.document.write(html);
   printWindow.document.close();
-  setTimeout(() => { printWindow.print(); }, 500);
+  printWindow.focus();
+  setTimeout(() => {
+    try { printWindow.print(); } catch {}
+  }, 600);
 }
 
 export function exportAsText(title, contentHtml) {

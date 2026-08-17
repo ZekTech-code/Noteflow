@@ -1102,7 +1102,7 @@ export default function Editor() {
             </button>
             {exportOpen && (
               <>
-                <div className="dropdown-overlay" onMouseDown={() => { setExportOpen(false); setTimeout(() => contentRef.current?.focus(), 50); }} />
+                <div className="dropdown-overlay" onMouseDown={(e) => { e.preventDefault(); setExportOpen(false); setTimeout(() => contentRef.current?.focus(), 0); }} />
                 <div className="dropdown-menu">
                   <button className="dropdown-item" onClick={() => { exportAsPdf(note.title, titleRef.current?.innerHTML || '', contentRef.current?.innerHTML || '', note.bgColor, note.titleAlign || 'center'); actions.showToast('PDF exported'); setExportOpen(false); setTimeout(() => contentRef.current?.focus(), 50); }}>
                     <i className="fa-solid fa-file-pdf"></i> Export as PDF
@@ -1110,7 +1110,7 @@ export default function Editor() {
                   <button className="dropdown-item" onClick={() => { const allHtml = (titleRef.current?.innerHTML || '') + (contentRef.current?.innerHTML || ''); exportAsText(note.title, allHtml); actions.showToast('Text exported'); setExportOpen(false); setTimeout(() => contentRef.current?.focus(), 50); }}>
                     <i className="fa-solid fa-file-lines"></i> Export as Text
                   </button>
-                  <button className="dropdown-item" onClick={() => { window.print(); setExportOpen(false); setTimeout(() => contentRef.current?.focus(), 50); }}>
+                  <button className="dropdown-item" onClick={() => { exportAsPdf(note.title, titleRef.current?.innerHTML || '', contentRef.current?.innerHTML || '', note.bgColor, note.titleAlign || 'center'); setExportOpen(false); setTimeout(() => contentRef.current?.focus(), 0); }}>
                     <i className="fa-solid fa-print"></i> Print
                   </button>
                   <button className="dropdown-item" onClick={() => { actions.openModal('share'); setExportOpen(false); }}>
