@@ -167,21 +167,6 @@ export default function InstallButton() {
   if (installed && !showHelp) return null;
 
   const install = async () => {
-    if (installPrompt) {
-      try {
-        installPrompt.prompt();
-        const choice = await installPrompt.userChoice;
-        setInstallPrompt(null);
-        if (choice && choice.outcome === 'accepted') {
-          setInstalled(true);
-          setShowHelp(false);
-          showInstalledToast();
-          return;
-        }
-      } catch {
-        setInstallPrompt(null);
-      }
-    }
     setShowHelp(true);
   };
 
