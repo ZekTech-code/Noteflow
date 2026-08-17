@@ -2219,10 +2219,10 @@ body {
   min-width: 0;
   height: 48px;
   padding: 0 16px 0 44px;
-  background: rgba(11, 15, 25, 0.62);
-  border: 1px solid rgba(255, 255, 255, 0.09);
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.18);
   border-radius: 12px;
-  color: var(--text-primary);
+  color: #ffffff;
   font-family: var(--font-body);
   font-size: 0.95rem;
   outline: none;
@@ -2232,14 +2232,14 @@ body {
     background 0.2s ease;
 }
 .auth-input::placeholder {
-  color: #6b7490;
+  color: rgba(255, 255, 255, 0.5);
 }
 .auth-input:hover {
-  border-color: rgba(255, 255, 255, 0.16);
+  border-color: rgba(255, 255, 255, 0.3);
 }
 .auth-input:focus {
   border-color: rgba(212, 175, 55, 0.72);
-  background: rgba(11, 15, 25, 0.78);
+  background: rgba(255, 255, 255, 0.12);
   box-shadow: 0 0 0 4px rgba(212, 175, 55, 0.12);
 }
 .auth-input-row:focus-within .auth-input-icon {
