@@ -2852,7 +2852,7 @@ body {
 .auth-input {
   height: 50px;
   border-radius: 8px;
-  background: var(--bg-card);
+  background: #ffffff;
   border-color: #d8dde7;
   color: #151922;
 }
@@ -2867,7 +2867,7 @@ body {
 
 .auth-input:focus {
   border-color: #b08a28;
-  background: var(--bg-card);
+  background: #ffffff;
   box-shadow: 0 0 0 4px rgba(176, 138, 40, 0.14);
 }
 
