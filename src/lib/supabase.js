@@ -3,6 +3,10 @@ import { createClient } from '@supabase/supabase-js';
 const url = import.meta.env.VITE_SUPABASE_URL;
 const anonKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
 
+if (!url || !anonKey) {
+  console.warn('[NoteFlow] Missing Supabase env vars. VITE_SUPABASE_URL:', url ? 'set' : 'MISSING', 'VITE_SUPABASE_ANON_KEY:', anonKey ? 'set' : 'MISSING');
+}
+
 export const supabase = url && anonKey ? createClient(url, anonKey) : null;
 
 export function isCloudEnabled() {
