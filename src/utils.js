@@ -6,7 +6,9 @@ export function uid() {
 }
 
 export function stripHtml(html) {
-  return String(html || '').replace(/<[^>]+>/g, '');
+  const div = document.createElement('div');
+  div.innerHTML = String(html || '');
+  return div.textContent || '';
 }
 
 export function catLabel(cat) {
