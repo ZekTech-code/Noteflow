@@ -196,7 +196,7 @@ export default function InstallButton() {
         </button>
       )}
       {diag && (
-        <div className="modal-overlay open" onClick={(e) => e.target === e.currentTarget && setShowHelp(false)}>
+        <div className="modal-overlay open" style={{ zIndex: 9999 }}>
           <div className="modal install-help">
             <h3>
               <i
