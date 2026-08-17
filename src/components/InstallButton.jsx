@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { createPortal } from 'react-dom';
 import { useNotes } from '../store';
 
 const ua = typeof navigator !== 'undefined' ? navigator.userAgent : '';
@@ -122,11 +123,46 @@ function getDiagnostics() {
   };
 }
 
-export default function InstallButton() {
-  const { actions } = useNotes();
-  const [showHelp, setShowHelp] = useState(false);
+function InstallModal({ onClose }) {
+  const diag = getDiagnostics();
 
-  const diag = showHelp ? getDiagnostics() : null;
+  useEffect(() => {
+    document.body.style.overflow = 'hidden';
+    return () => { document.body.style.overflow = ''; };
+  }, []);
+
+  return createPortal(
+    <div className="install-modal-overlay" onMouseDown={(e) => e.preventDefault()}>
+      <div className="modal install-help">
+        <h3>
+          <i
+            className={diag.warning ? 'fa-solid fa-triangle-exclamation' : 'fa-solid fa-download'}
+            style={{ color: diag.warning ? 'var(--danger)' : 'var(--accent)', marginRight: 8 }}
+          ></i>
+          {diag.title}
+        </h3>
+        {diag.warning && <p className="install-warning">Installation requires a secure connection.</p>}
+        <ol className="install-steps">{diag.steps.map((s, i) => <li key={i}>{s}</li>)}</ol>
+        <div className="modal-footer">
+          {isIos ? (
+            <>
+              <button className="btn btn-ghost" onClick={onClose}>Got it</button>
+              <button className="btn btn-primary" onClick={onClose}>
+                <i className="fa-solid fa-circle-check"></i> Added to Home Screen
+              </button>
+            </>
+          ) : (
+            <button className="btn btn-primary" onClick={onClose}>Got it</button>
+          )}
+        </div>
+      </div>
+    </div>,
+    document.body
+  );
+}
+
+export default function InstallButton() {
+  const [showHelp, setShowHelp] = useState(false);
 
   return (
     <>
@@ -134,43 +170,7 @@ export default function InstallButton() {
         <i className="fa-solid fa-download"></i>
         <span className="install-label">Install</span>
       </button>
-      {diag && (
-        <div className="modal-overlay open" style={{ zIndex: 9000 }}>
-          <div className="modal install-help">
-            <h3>
-              <i
-                className={diag.warning ? 'fa-solid fa-triangle-exclamation' : 'fa-solid fa-download'}
-                style={{ color: diag.warning ? 'var(--danger)' : 'var(--accent)', marginRight: 8 }}
-              ></i>
-              {diag.title}
-            </h3>
-            {diag.warning && <p className="install-warning">Installation requires a secure connection.</p>}
-            <ol className="install-steps">{diag.steps.map((s, i) => <li key={i}>{s}</li>)}</ol>
-            <div className="modal-footer">
-              {isIos ? (
-                <>
-                  <button className="btn btn-ghost" onClick={() => setShowHelp(false)}>
-                    Got it
-                  </button>
-                  <button
-                    className="btn btn-primary"
-                    onClick={() => {
-                      setShowHelp(false);
-                      actions.showToast('Installed! Open NoteFlow from your home screen.');
-                    }}
-                  >
-                    <i className="fa-solid fa-circle-check"></i> Added to Home Screen
-                  </button>
-                </>
-              ) : (
-                <button className="btn btn-primary" onClick={() => setShowHelp(false)}>
-                  Got it
-                </button>
-              )}
-            </div>
-          </div>
-        </div>
-      )}
+      {showHelp && <InstallModal onClose={() => setShowHelp(false)} />}
     </>
   );
 }
