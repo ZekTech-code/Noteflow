@@ -124,64 +124,18 @@ function getDiagnostics() {
 
 export default function InstallButton() {
   const { actions } = useNotes();
-  const [installPrompt, setInstallPrompt] = useState(null);
-  const [installed, setInstalled] = useState(false);
   const [showHelp, setShowHelp] = useState(false);
-
-  const showInstalledToast = () => {
-    actions.showToast(
-      isAndroid
-        ? 'Installed! Open NoteFlow from your home screen.'
-        : isIos
-          ? 'Installed! Open NoteFlow from your home screen.'
-          : 'Installed! Find NoteFlow in your Start menu.',
-    );
-  };
-
-  useEffect(() => {
-    const onPrompt = (e) => {
-      e.preventDefault();
-      setInstallPrompt(e);
-    };
-    const onInstalled = () => {
-      setInstallPrompt(null);
-      setInstalled(true);
-      setShowHelp(false);
-      showInstalledToast();
-    };
-    window.addEventListener('beforeinstallprompt', onPrompt);
-    window.addEventListener('appinstalled', onInstalled);
-    if (
-      window.matchMedia('(display-mode: standalone)').matches ||
-      window.navigator.standalone === true
-    ) {
-      setInstalled(true);
-    }
-    return () => {
-      window.removeEventListener('beforeinstallprompt', onPrompt);
-      window.removeEventListener('appinstalled', onInstalled);
-    };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
-  if (installed && !showHelp) return null;
-
-  const install = async () => {
-    setShowHelp(true);
-  };
 
   const diag = showHelp ? getDiagnostics() : null;
 
   return (
     <>
-      {!installed && (
-        <button className="btn btn-ghost install-btn" onClick={install} data-tooltip="Install NoteFlow on this device" aria-label="Install NoteFlow on this device">
-          <i className="fa-solid fa-download"></i>
-          <span className="install-label">Install</span>
-        </button>
-      )}
+      <button className="btn btn-ghost install-btn" onClick={() => setShowHelp(true)} data-tooltip="Install NoteFlow on this device" aria-label="Install NoteFlow on this device">
+        <i className="fa-solid fa-download"></i>
+        <span className="install-label">Install</span>
+      </button>
       {diag && (
-        <div className="modal-overlay open" style={{ zIndex: 9999 }}>
+        <div className="modal-overlay open" style={{ zIndex: 9000 }}>
           <div className="modal install-help">
             <h3>
               <i
@@ -202,8 +156,7 @@ export default function InstallButton() {
                     className="btn btn-primary"
                     onClick={() => {
                       setShowHelp(false);
-                      setInstalled(true);
-                      showInstalledToast();
+                      actions.showToast('Installed! Open NoteFlow from your home screen.');
                     }}
                   >
                     <i className="fa-solid fa-circle-check"></i> Added to Home Screen
