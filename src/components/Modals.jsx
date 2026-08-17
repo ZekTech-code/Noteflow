@@ -377,7 +377,7 @@ function ShareModal({ note }) {
   const shareNative = async () => {
     if (navigator.share) {
       try {
-        await navigator.share({ title: note.title || 'Untitled', text: stripHtml(note.content) });
+        await navigator.share({ title: stripHtml(note.title) || 'Untitled', text: stripHtml(note.content) });
       } catch {}
     }
   };
@@ -482,7 +482,7 @@ function VersionHistoryModal({ noteId }) {
                 <span className="version-time">{formatTime(v.savedAt)}</span>
                 <span className="version-number">v{versions.length - i}</span>
               </div>
-              <div className="version-title">{v.title || 'Untitled'}</div>
+              <div className="version-title">{stripHtml(v.title) || 'Untitled'}</div>
               {preview === i && (
                 <div className="version-preview">
                   <p className="version-preview-text">{stripHtml(v.content).slice(0, 300) || 'Empty note'}</p>

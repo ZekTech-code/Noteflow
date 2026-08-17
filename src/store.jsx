@@ -82,10 +82,11 @@ function reducer(state, action) {
       return { ...state, activeId: action.id, saveStatus: 'saved', noNoteScreen: 'default' };
     case 'UPDATE_CONTENT': {
       const updatedAt = new Date().toISOString();
+      const cleanTitle = stripHtml(action.title || '');
       return {
         ...state,
         notes: state.notes.map((n) =>
-          n.id === action.id ? { ...n, title: action.title, content: action.content, updatedAt } : n,
+          n.id === action.id ? { ...n, title: cleanTitle, content: action.content, updatedAt } : n,
         ),
         saveStatus: 'saved',
       };
