@@ -146,6 +146,7 @@ export default function InstallButton() {
     const onInstalled = () => {
       setInstallPrompt(null);
       setInstalled(true);
+      setShowHelp(false);
       showInstalledToast();
     };
     window.addEventListener('beforeinstallprompt', onPrompt);
@@ -163,23 +164,23 @@ export default function InstallButton() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  if (installed) return null;
+  if (installed && !showHelp) return null;
 
   const install = async () => {
     if (installPrompt) {
-      setShowHelp(false);
       try {
         installPrompt.prompt();
         const choice = await installPrompt.userChoice;
         setInstallPrompt(null);
         if (choice && choice.outcome === 'accepted') {
           setInstalled(true);
+          setShowHelp(false);
           showInstalledToast();
+          return;
         }
       } catch {
         setInstallPrompt(null);
       }
-      return;
     }
     setShowHelp(true);
   };
@@ -188,10 +189,12 @@ export default function InstallButton() {
 
   return (
     <>
-      <button className="btn btn-ghost install-btn" onClick={install} data-tooltip="Install NoteFlow on this device" aria-label="Install NoteFlow on this device">
-        <i className="fa-solid fa-download"></i>
-        <span className="install-label">Install</span>
-      </button>
+      {!installed && (
+        <button className="btn btn-ghost install-btn" onClick={install} data-tooltip="Install NoteFlow on this device" aria-label="Install NoteFlow on this device">
+          <i className="fa-solid fa-download"></i>
+          <span className="install-label">Install</span>
+        </button>
+      )}
       {diag && (
         <div className="modal-overlay open" onClick={(e) => e.target === e.currentTarget && setShowHelp(false)}>
           <div className="modal install-help">
