@@ -1736,6 +1736,10 @@ body {
     padding: env(safe-area-inset-top, 0px) 14px 0;
   }
 
+  .header-actions .install-btn {
+    display: none !important;
+  }
+
   #menuToggle {
     display: flex;
   }
@@ -1747,7 +1751,6 @@ body {
     gap: 4px;
   }
   .header-mic,
-  .header-actions .install-btn,
   .header-theme,
   .header-new,
   .header-avatar {
@@ -1759,7 +1762,6 @@ body {
     font-size: 0.95rem;
   }
   .header-mic { order: -1; }
-  .header-actions .install-btn { order: 0; }
   .header-theme { order: 1; }
   .header-new { order: 2; }
   .header-avatar { order: 3; }
@@ -1905,9 +1907,6 @@ body {
 }
 
 @media (max-width: 480px) {
-  .install-label {
-    display: none;
-  }
   .logo {
     font-size: 1.25rem;
   }
@@ -1930,8 +1929,7 @@ body {
   .header-new,
   .header-menu,
   .header-theme,
-  .header-avatar,
-  .header-actions .install-btn {
+  .header-avatar {
     width: 34px;
     height: 34px;
     min-width: 34px;
