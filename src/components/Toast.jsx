@@ -32,7 +32,7 @@ export default function Toast() {
       <button className="toast-close" onClick={() => actions.dismissToast(toast.id)} aria-label="Dismiss notification">
         <X size={15} aria-hidden="true" />
       </button>
-      <span className="toast-progress" style={{ '--toast-duration': '4200ms' }} aria-hidden="true" />
+      <span className="toast-progress" style={{ '--toast-duration': '3000ms' }} aria-hidden="true" />
     </div>
   );
 }

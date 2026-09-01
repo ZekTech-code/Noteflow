@@ -1566,7 +1566,7 @@ header {
   border-radius: 2px;
   background: linear-gradient(90deg, var(--gold-pressed), var(--gold), var(--gold-light));
   transform-origin: left center;
-  animation: toastProgress var(--toast-duration, 4.2s) linear forwards;
+  animation: toastProgress var(--toast-duration, 3s) linear forwards;
 }
 @keyframes toastProgress {
   from {
@@ -1866,15 +1866,42 @@ body {
   }
 
   .toast {
-    top: 50%;
+    top: calc(56px + env(safe-area-inset-top, 0px) + 8px);
     left: 50%;
     right: auto;
     bottom: auto;
-    justify-content: center;
-    max-width: min(88vw, 340px);
+    transform: translateX(-50%) translateY(-8px);
+    width: auto;
+    max-width: calc(100vw - 24px);
+    padding: 6px 32px 6px 8px;
+    gap: 7px;
+    border-radius: 10px;
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.25);
+  }
+  .toast .toast-icon {
+    width: 26px;
+    height: 26px;
+    border-radius: 7px;
+  }
+  .toast .toast-body {
+    gap: 0;
+    padding-top: 0;
+  }
+  .toast .toast-title {
+    font-size: 0.78rem;
+  }
+  .toast .toast-msg {
+    font-size: 0.72rem;
+  }
+  .toast .toast-close {
+    top: 5px;
+    right: 5px;
+    width: 20px;
+    height: 20px;
   }
   .toast.show {
     opacity: 1;
+    transform: translateX(-50%) translateY(0);
   }
 
   /* Mobile: fixed-position tooltips so they escape overflow:hidden containers */

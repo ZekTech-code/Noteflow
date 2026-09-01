@@ -381,7 +381,7 @@ export function NotesProvider({ children }) {
   const showToast = useCallback((msg, sticky = false, title = '') => {
     const id = Date.now() + Math.random();
     dispatch({ type: 'SHOW_TOAST', msg, id, sticky, title });
-    if (!sticky) setTimeout(() => dispatch({ type: 'HIDE_TOAST', id }), 4200);
+    if (!sticky) setTimeout(() => dispatch({ type: 'HIDE_TOAST', id }), 3000);
   }, []);
 
   const dismissToast = useCallback((id) => {
