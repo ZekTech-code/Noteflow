@@ -3222,8 +3222,8 @@ body {
 
 @media (max-width: 860px) {
   .auth-panel {
-    width: 100%;
-    max-width: 100%;
+    width: 50%;
+    max-width: none;
     margin: 0 auto;
     justify-self: auto;
   }
@@ -3429,8 +3429,8 @@ body {
 }
 
 .auth-panel {
-  width: 60%;
-  max-width: none;
+  width: min(100%, 420px);
+  max-width: 420px;
   margin: 0 auto;
   justify-self: auto;
 }
@@ -3475,7 +3475,8 @@ body {
   }
 
 .auth-panel {
-    max-width: 100%;
+    width: 50%;
+    max-width: none;
   }
 
 .auth-panel .auth-card {
@@ -3836,8 +3837,8 @@ body {
   }
 
 .auth-panel {
-    width: min(100%, 320px);
-    max-width: 320px;
+    width: 50%;
+    max-width: none;
   }
 }
 
@@ -3934,8 +3935,8 @@ body {
 
 @media (max-width: 420px) {
   .auth-panel {
-    width: 100%;
-    max-width: 380px;
+    width: 50%;
+    max-width: none;
   }
 
   .auth-word-column {
