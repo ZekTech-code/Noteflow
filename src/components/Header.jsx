@@ -34,7 +34,12 @@ export default function Header() {
 
   useEffect(() => {
     if (error) {
-      actions.showToast('Mic error: ' + error);
+      const friendly = {
+        'not-allowed': 'Microphone permission was denied. Allow access in your browser and try again.',
+        'not-supported': 'Speech recognition is not supported in this browser. Use Chrome or Edge.',
+        network: 'Speech service is unavailable. Check your connection and try again.',
+      }[error] || ('Mic error: ' + error);
+      actions.showToast(friendly);
     }
   }, [error]);
 

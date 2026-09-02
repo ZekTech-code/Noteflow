@@ -3,11 +3,39 @@ import { createClient } from '@supabase/supabase-js';
 const url = import.meta.env.VITE_SUPABASE_URL;
 const anonKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
 
+// Transient network failures (ERR_CONNECTION_CLOSED, ECONNRESET, DNS...) are
+// retried with exponential backoff so the client self-heals instead of hammering
+// the API. Most auth calls whose request never reached the server are safe to
+// retry; idempotent writes are, in practice, deduplicated upstream.
+const MAX_RETRIES = 2;
+const RETRY_BASE_DELAY = 600;
+
+async function fetchWithRetry(input, init) {
+  let lastError;
+  for (let attempt = 0; attempt <= MAX_RETRIES; attempt++) {
+    try {
+      return await fetch(input, init);
+    } catch (err) {
+      lastError = err;
+      if (err && err.name === 'AbortError') throw err;
+      if (attempt >= MAX_RETRIES) break;
+      const delay = RETRY_BASE_DELAY * 2 ** attempt + Math.random() * 200;
+      await new Promise((resolve) => setTimeout(resolve, delay));
+    }
+  }
+  throw lastError;
+}
+
+// NOTE: the anon key and project URL are PUBLIC BY DESIGN. They are not
+// secrets. Data protection is enforced by Supabase's Row Level Security (the
+// service-role key — a real secret — is never used in this client).
 if (!url || !anonKey) {
   console.warn('[NoteFlow] Missing Supabase env vars. VITE_SUPABASE_URL:', url ? 'set' : 'MISSING', 'VITE_SUPABASE_ANON_KEY:', anonKey ? 'set' : 'MISSING');
 }
 
-export const supabase = url && anonKey ? createClient(url, anonKey) : null;
+export const supabase = url && anonKey
+  ? createClient(url, anonKey, { global: { fetch: fetchWithRetry } })
+  : null;
 
 export function isCloudEnabled() {
   return !!supabase;
