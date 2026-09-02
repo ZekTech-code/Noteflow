@@ -3452,7 +3452,7 @@ body {
 
 @media (max-width: 860px) {
   .auth-screen {
-    padding: 18px;
+    padding: 16px;
     overflow-y: auto;
   }
 
@@ -3835,7 +3835,7 @@ body {
     box-shadow: 0 10px 28px rgba(0, 0, 0, 0.24);
   }
 
-  .auth-panel {
+.auth-panel {
     width: min(100%, 320px);
     max-width: 320px;
   }
@@ -3858,11 +3858,6 @@ body {
     padding: 6px 7px;
     font-size: 0.64rem;
   }
-
-  .auth-panel {
-    width: min(100%, 300px);
-    max-width: 300px;
-  }
 }
 
 /* ---- Mobile top and bottom writing word ribbons ---- */
@@ -3876,9 +3871,9 @@ body {
     padding: 0;
   }
 
-  .auth-panel {
-    width: min(100%, 340px);
-    max-width: 340px;
+.auth-panel {
+    width: 100%;
+    max-width: 100%;
     margin: auto;
   }
 
@@ -3939,8 +3934,8 @@ body {
 
 @media (max-width: 420px) {
   .auth-panel {
-    width: min(100%, 320px);
-    max-width: 320px;
+    width: 100%;
+    max-width: 100%;
   }
 
   .auth-word-column {
