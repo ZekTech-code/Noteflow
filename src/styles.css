@@ -3234,7 +3234,7 @@ body {
   }
 
   .auth-panel .auth-heading {
-    margin: 18px 0 16px;
+    margin: 22px 0 18px;
   }
 
   .auth-panel .auth-heading p {
@@ -3478,8 +3478,8 @@ body {
     max-width: 100%;
   }
 
-  .auth-panel .auth-card {
-    padding: 30px 26px 28px;
+.auth-panel .auth-card {
+    padding: 40px 30px 34px;
   }
 
   .auth-panel .auth-heading p {
@@ -3516,7 +3516,7 @@ body {
   }
 
 .auth-panel .auth-card {
-    padding: 26px 22px 24px;
+    padding: 34px 24px 30px;
   }
 
   .auth-panel .auth-heading p {
@@ -3873,7 +3873,7 @@ body {
 
 .auth-panel {
     width: 100%;
-    max-width: 100%;
+    max-width: 400px;
     margin: auto;
   }
 
@@ -3935,7 +3935,7 @@ body {
 @media (max-width: 420px) {
   .auth-panel {
     width: 100%;
-    max-width: 100%;
+    max-width: 380px;
   }
 
   .auth-word-column {
