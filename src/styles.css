@@ -3223,7 +3223,7 @@ body {
 @media (max-width: 860px) {
   .auth-panel {
     width: 100%;
-    max-width: 440px;
+    max-width: 100%;
     margin: 0 auto;
     justify-self: auto;
   }
@@ -3474,12 +3474,12 @@ body {
     gap: 0;
   }
 
-  .auth-panel {
-    max-width: 400px;
+.auth-panel {
+    max-width: 100%;
   }
 
   .auth-panel .auth-card {
-    padding: 24px 20px 22px;
+    padding: 30px 26px 28px;
   }
 
   .auth-panel .auth-heading p {
@@ -3515,8 +3515,8 @@ body {
     min-height: calc(100dvh - 28px);
   }
 
-  .auth-panel .auth-card {
-    padding: 22px 16px 20px;
+.auth-panel .auth-card {
+    padding: 26px 22px 24px;
   }
 
   .auth-panel .auth-heading p {
