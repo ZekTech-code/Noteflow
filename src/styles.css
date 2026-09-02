@@ -3429,8 +3429,8 @@ body {
 }
 
 .auth-panel {
-  width: min(100%, 420px);
-  max-width: 420px;
+  width: 60%;
+  max-width: none;
   margin: 0 auto;
   justify-self: auto;
 }
